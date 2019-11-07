@@ -1,0 +1,30 @@
+{
+  "name": "shell-gui",
+  "version": "1.0.0",
+  "description": "GUI For running shell commands",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikefey/shell-gui.git"
+  },
+  "keywords": [
+    "gui",
+    "scripts",
+    "shell",
+    "node",
+    "javascript"
+  ],
+  "author": "Mike Fey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikefey/shell-gui/issues"
+  },
+  "homepage": "https://github.com/mikefey/shell-gui#readme",
+  "dependencies": {
+    "js-yaml": "^3.13.1",
+    "koa": "^2.11.0"
+  }
+}

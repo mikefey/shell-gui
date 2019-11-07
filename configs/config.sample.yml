@@ -1,0 +1,27 @@
+title: "Project Title"
+sections:
+  - section:
+    title: "Staging"
+    commands:
+      - item:
+        title: "Command 1"
+        command: "npm test"
+      - item:
+        title: "Command 2"
+        command: "npm run build release"
+      - item:
+        title: "Command 3"
+        command: "npm run deploy"
+  - section:
+    title: "Production"
+    commands:
+      - item:
+        title: "Command 1"
+        command: "npm test"
+      - item:
+        title: "Command 2"
+        command: "npm run build release"
+      - item:
+        title: "Command 3"
+        command: "npm run deploy"
+
