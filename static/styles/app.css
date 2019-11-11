@@ -1,0 +1,125 @@
+:root {
+  --color-black: #292f36;
+  --color-green: #077541;
+  --color-purple: #936d82;
+  --color-off-white: #f9f0ea;
+  --output-height: 200px;
+  --section-padding:20px;
+}
+
+*:focus:not(:focus-visible),
+*::before:focus:not(:focus-visible),
+*::after:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.plain-list {
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  padding-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  background-color: var(--color-off-white);
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+  font-size: 10px;
+  min-height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+  font-size: 1.8rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.button {
+  border: 2px solid var(--color-black);
+  border-radius: 4px;
+  font-size: 1.4rem;
+  padding: 10px 20px;
+  transition: color .2s ease-out, border-color .2s ease-out;
+}
+
+.project {
+  padding: var(--section-padding);
+}
+
+.project__section {
+  margin-bottom: var(--section-padding);
+}
+
+.project__section__commands {
+  margin-bottom: var(--section-padding);
+  margin-top: calc(var(--section-padding) / 2);
+}
+
+.project__section__commands__command {
+  border-color: var(--color-green);
+  color: var(--color-green);
+  font-weight: 600;
+  margin-bottom: calc(var(--section-padding) / 2);
+}
+
+.project__section__commands__command:hover {
+  border-color: var(--color-purple);
+  color: var(--color-purple);
+}

@@ -1,0 +1,32 @@
+<main>
+  <% configData.forEach((item) => { %>
+    <section class='project'>
+      <header>
+        <h1 class='project__header'><%= item.title %></h1>
+      </header>
+      <section class='project__sections'>
+        <ul class='project__sections__items plain-list'>
+          <% item.sections.forEach((section) => { %>
+            <li class='project__section'>
+              <section>
+                <header>
+                  <h2 class='project__header'><%= section.title %></h1>
+                </header>
+                <ul class='plain-list project__section__commands'>
+                  <% section.commands.forEach((command) => { %>
+                    <li>
+                      <button class='button project__section__commands__command'><%= command.title %></button>
+                    </li>
+                  <% }) %>
+                </ul>
+              </section>
+            </li>
+          <% }) %>
+        </ul>
+      </section>
+    </section>
+  <% }) %>
+  <div class='output'>
+
+  </div>
+</main>

@@ -4,6 +4,7 @@
   "description": "GUI For running shell commands",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,8 @@
   "homepage": "https://github.com/mikefey/shell-gui#readme",
   "dependencies": {
     "js-yaml": "^3.13.1",
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-ejs": "^4.2.0",
+    "koa-static": "^5.0.0"
   }
 }
