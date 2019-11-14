@@ -15,7 +15,7 @@
                 <ul class='plain-list project__section__commands'>
                   <% section.commands.forEach((command) => { %>
                     <li>
-                      <button class='button project__section__commands__command'><%= command.title %></button>
+                      <button data-command-id="<%= command.id %>" class='button project__section__commands__command'><%= command.title %></button>
                     </li>
                   <% }) %>
                 </ul>

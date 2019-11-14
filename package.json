@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/mikefey/shell-gui#readme",
   "dependencies": {
+    "@koa/router": "^8.0.2",
     "js-yaml": "^3.13.1",
     "koa": "^2.11.0",
     "koa-ejs": "^4.2.0",
