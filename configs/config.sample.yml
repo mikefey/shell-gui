@@ -1,0 +1,12 @@
+title: "My Project"
+sections:
+  - section:
+    title: "Section 1"
+    commands:
+      - command:
+        title: "List NPM Modules"
+        action: "npm ls"
+      - command:
+        title: "Test"
+        action: "npm test"
+
