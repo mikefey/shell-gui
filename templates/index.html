@@ -1,32 +1,40 @@
-<main>
+<main class='wrapper'>
   <% configData.forEach((item) => { %>
-    <section class='project'>
-      <header>
-        <h1 class='project__header'><%= item.title %></h1>
-      </header>
-      <section class='project__sections'>
-        <ul class='project__sections__items plain-list'>
-          <% item.sections.forEach((section) => { %>
-            <li class='project__section'>
-              <section>
-                <header>
-                  <h2 class='project__header'><%= section.title %></h1>
-                </header>
-                <ul class='plain-list project__section__commands'>
-                  <% section.commands.forEach((command) => { %>
-                    <li>
-                      <button data-command-id="<%= command._id %>" class='button project__section__commands__command'><%= command.title %></button>
-                    </li>
-                  <% }) %>
-                </ul>
-              </section>
-            </li>
-          <% }) %>
-        </ul>
-      </section>
+    <section class='project-wrapper'>
+      <div class='project card'>
+        <header>
+          <h1 class='project__title'><%= item.title %></h1>
+        </header>
+        <section class='project__sections'>
+          <ul class='project__sections__items plain-list'>
+            <% item.sections.forEach((section) => { %>
+              <li class='project__section'>
+                <section>
+                  <header>
+                    <h2 class='project__header'><%= section.title %></h1>
+                  </header>
+                  <ul class='plain-list project__section__commands'>
+                    <% section.commands.forEach((command) => { %>
+                      <li>
+                        <button data-command-id='<%= command._id %>' class='button project__section__commands__command'><%= command.title %></button>
+                      </li>
+                    <% }) %>
+                  </ul>
+                </section>
+              </li>
+            <% }) %>
+          </ul>
+        </section>
+      </div>
     </section>
   <% }) %>
-  <div class='output'>
-
-  </div>
 </main>
+<section class='output-container'>
+  <h2 class='output-container__header'>Output</h2>
+  <div class='output'>
+    <div class='output__text'>No commands have been run.</div>
+  </div>
+  <button
+    aria-pressed='false'
+    class='output-container__toggle button' type='button'>▲</button>
+</section>

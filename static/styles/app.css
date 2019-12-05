@@ -5,6 +5,23 @@
   --color-off-white: #f9f0ea;
   --output-height: 200px;
   --section-padding:20px;
+  --output-container-height: 300px;
+  --font-family: -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol'; 
+  --monospace-font-family: 'SFMono-Regular',
+    Consolas,
+    'Liberation Mono',
+    Menlo,
+    Courier,
+    monospace;
 }
 
 *:focus:not(:focus-visible),
@@ -27,7 +44,7 @@
 }
 
 .plain-list {
-  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  list-style: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E');
   padding-left: 0;
 }
 
@@ -71,7 +88,6 @@ html {
 
 html,
 body {
-  font-size: 10px;
   min-height: 100%;
 	margin: 0;
 	padding: 0;
@@ -79,28 +95,50 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-  font-size: 1.8rem;
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  margin-bottom: var(--output-container-height);
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 1.5rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.25rem;
+}
+
+.wrapper {
+  padding: var(--section-padding);
 }
 
 .button {
   border: 2px solid var(--color-black);
   border-radius: 4px;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   padding: 10px 20px;
   transition: color .2s ease-out, border-color .2s ease-out;
 }
 
+.card {
+  border: 1px solid rgba(10,10,10,.02);
+  border-radius: 4px;
+  box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+.project__title {
+  margin-bottom: calc(var(--section-padding) * 3);
+}
+
+.project-wrapper {
+  margin-bottom: calc(var(--section-padding) * 2);
+  width: 100%;
+}
+
 .project {
+  max-width: 600px;
   padding: var(--section-padding);
+  width: 100%;
 }
 
 .project__section {
@@ -122,4 +160,52 @@ h2 {
 .project__section__commands__command:hover {
   border-color: var(--color-purple);
   color: var(--color-purple);
+}
+
+.output-container {
+  background-color: var(--color-black);
+  bottom: 0;
+  box-shadow: 0 0 1em .5em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+  color: var(--color-off-white);
+  height: var(--output-container-height);
+  padding: var(--section-padding);
+  position: fixed;
+  transform: translate3d(0, calc(var(--output-container-height) - var(--section-padding) - (40px + var(--section-padding))), 0);
+  transition: transform .2s ease-out;
+  width: 100%;
+}
+
+.output-container.expanded {
+  transform: translate3d(0, 0, 0);
+}
+
+.output {
+  height:  calc(100% - (var(--section-padding) * 2));
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.output-container__header {
+  margin-bottom: calc(var(--section-padding) / 2);
+}
+
+.output-container__toggle {
+  border: 2px solid var(--color-off-white);
+  color: var(--color-off-white);
+  cursor: pointer;
+  font-family: var(--monospace-font-family);
+  height: 40px;
+  padding-left: 14px;
+  position: absolute;
+  right: var(--section-padding);
+  top: var(--section-padding);
+  width: 40px;
+}
+
+.output__text {
+  color: var(--color-off-white);
+  font-family: var(--monospace-font-family);
+  font-size: 1rem;
+  max-width: 600px;
+  white-space: pre-wrap;
 }
