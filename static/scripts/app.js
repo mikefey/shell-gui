@@ -36,15 +36,13 @@ const init = () => {
 
     event.preventDefault();
     fetch(`${EXECUTE_API_ENDPOINT}/${id}`)
-      .then((response) => {
-        return response.text();
-      })
+      .then((response) => response.text())
       .then((text) => {
         outputTextEl.innerHTML = text;
       })
       .catch((error) => {
         outputTextEl.innerHTML = `Error: ${error.toString()}`;
-      })
+      });
   };
 
   buttonEls.forEach((el) => {

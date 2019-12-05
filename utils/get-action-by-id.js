@@ -8,10 +8,10 @@ const getActionById = (id, data) => {
           action = actn.action;
         }
       });
-    })
+    });
   });
 
   return action;
-}
+};
 
 module.exports = getActionById;

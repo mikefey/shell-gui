@@ -4,10 +4,10 @@ const validateConfig = require('./validate-config');
 const addIdsToCommands = require('./add-ids-to-commands');
 
 const getConfigData = async () => {
-  const configFileData = await readFiles('./configs/')
+  const configFileData = await readFiles('./configs/');
   let inc = 0;
 
-  configFileData.sort((a, b) => (a.filename > b.filename) ? 1 : -1);
+  configFileData.sort((a, b) => ((a.filename > b.filename) ? 1 : -1));
 
   return new Promise((resolve) => {
     const sections = [];
@@ -16,16 +16,16 @@ const getConfigData = async () => {
       const parsedContent = yaml.safeLoad(configFile.content);
 
       validateConfig(parsedContent);
-      addIdsToCommands(parsedContent.sections);
+      parsedContent.sections = addIdsToCommands(parsedContent.sections);
 
       sections.push(parsedContent);
-      inc++;
+      inc += 1;
 
       if (inc === sections.length) {
         resolve(sections);
       }
     });
   });
-}
+};
 
 module.exports = getConfigData;

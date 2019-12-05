@@ -1,11 +1,15 @@
 const uuidv4 = require('./uuidv4');
 
-const addIdsToCommands = (sections) => {
-  sections.forEach((section) => {
-    section.commands.forEach((command) => {
-      command._id = uuidv4();
-    })   
-  })
-};
+const addIdsToCommands = (sections) => sections.map((section) => {
+  const newCommands = section.commands.map((command) => ({
+    ...command,
+    _id: uuidv4(),
+  }));
+
+  return {
+    ...section,
+    commands: newCommands,
+  };
+});
 
 module.exports = addIdsToCommands;
