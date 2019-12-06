@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R spec --recursive './**/*.test.js'"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0"
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "mocha": "^6.2.2"
   }
 }

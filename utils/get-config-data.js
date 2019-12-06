@@ -3,8 +3,8 @@ const readFiles = require('./read-files');
 const validateConfig = require('./validate-config');
 const addIdsToCommands = require('./add-ids-to-commands');
 
-const getConfigData = async () => {
-  const configFileData = await readFiles('./configs/');
+const getConfigData = async (path) => {
+  const configFileData = await readFiles(path);
   let inc = 0;
 
   configFileData.sort((a, b) => ((a.filename > b.filename) ? 1 : -1));

@@ -2,7 +2,7 @@ const render = require('koa-ejs');
 const Router = require('@koa/router');
 const path = require('path');
 const Koa = require('koa');
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const getConfigData = require('./utils/get-config-data');
 const getActionById = require('./utils/get-action-by-id');
 
@@ -15,15 +15,15 @@ render(app, {
   layout: 'layout',
   viewExt: 'html',
   cache: false,
-  debug: true
+  debug: true,
 });
 
 app
   .use(require('koa-static')(path.join(__dirname, 'static')))
   .use(router.routes());
 
-router.get('/', async (ctx, next) => {
-  const configData = await getConfigData();
+router.get('/', async (ctx) => {
+  const configData = await getConfigData('./configs/');
   store.configData = configData;
   await ctx.render('index', { configData });
 });
