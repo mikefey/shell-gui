@@ -32,7 +32,25 @@ router.get('/api/commands/:id', async (ctx) => {
   if (store.configData) {
     const action = getActionById(ctx.params.id, store.configData);
     const actionArray = action.split(' ');
-    const actionResponse = spawn(actionArray[0], actionArray.slice(1));
+
+    const envVars = actionArray
+      .filter((item) => item.indexOf('=') > -1 && item.indexOf('--') === -1)
+      .reduce((acc, item) => {
+        const [key, val] = item.split('=');
+
+        const updated = {
+          ...acc,
+          [key]: val,
+        };
+
+        return updated;
+      }, {});
+
+    const actionsWithoutEnvVars = actionArray.filter((item) => item.indexOf('=') === -1 || item.indexOf('--') > -1);
+
+    const actionResponse = spawn(actionsWithoutEnvVars[0], actionsWithoutEnvVars.slice(1), {
+      env: envVars,
+    });
 
     ctx.body = actionResponse.stdout;
   }
