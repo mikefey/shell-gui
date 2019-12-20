@@ -1,6 +1,7 @@
 const configData = [
   {
     title: 'My Project',
+    project_dir: '../my-project-dir',
     sections: [
       {
         title: 'Section 1',
