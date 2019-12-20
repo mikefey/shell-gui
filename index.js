@@ -5,6 +5,7 @@ const Koa = require('koa');
 const { spawn } = require('child_process');
 const getConfigData = require('./utils/get-config-data');
 const getActionById = require('./utils/get-action-by-id');
+const getCwdById = require('./utils/get-cwd-by-id');
 
 const app = new Koa();
 const router = new Router();
@@ -31,6 +32,7 @@ router.get('/', async (ctx) => {
 router.get('/api/commands/:id', async (ctx) => {
   if (store.configData) {
     const action = getActionById(ctx.params.id, store.configData);
+    const cwd = getCwdById(ctx.params.id, store.configData);
     const actionArray = action.split(' ');
 
     const envVars = actionArray
@@ -47,9 +49,19 @@ router.get('/api/commands/:id', async (ctx) => {
       }, {});
 
     const actionsWithoutEnvVars = actionArray.filter((item) => item.indexOf('=') === -1 || item.indexOf('--') > -1);
+    const actionConfig = {
+      cwd: `${__dirname}/${cwd}`,
+      env: Object.entries(envVars).length > 0 ? envVars : undefined,
+    };
 
-    const actionResponse = spawn(actionsWithoutEnvVars[0], actionsWithoutEnvVars.slice(1), {
-      env: envVars,
+    const actionResponse = spawn(
+      actionsWithoutEnvVars[0],
+      actionsWithoutEnvVars.slice(1),
+      actionConfig,
+    );
+
+    actionResponse.stdout.on('data', (data) => {
+      console.log(data.toString());
     });
 
     ctx.body = actionResponse.stdout;

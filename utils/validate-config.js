@@ -9,6 +9,10 @@ const validateConfig = (fileData) => {
     throw new Error(`\x1b[91mA "sections" key must be present ${defaultError}\x1b[39m`);
   }
 
+  if (!fileData.project_dir) {
+    throw new Error(`\x1b[91mA "project_dir" key must be present ${defaultError}\x1b[39m`);
+  }
+
   if (!fileData.sections.length) {
     throw new Error(`\x1b[91mThere must be at least one "section" as a child of the "sections" key/value pair. ${defaultError}\x1b[39m`);
   }

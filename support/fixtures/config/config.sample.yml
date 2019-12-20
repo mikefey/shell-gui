@@ -1,4 +1,5 @@
 title: "My Project"
+project_dir: './'
 sections:
   - section:
     title: "Section 1"
