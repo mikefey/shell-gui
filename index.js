@@ -6,6 +6,7 @@ const { spawn } = require('child_process');
 const getConfigData = require('./utils/get-config-data');
 const getActionById = require('./utils/get-action-by-id');
 const getCwdById = require('./utils/get-cwd-by-id');
+const { getEnvVars, getActionsWithoutEnvVars } = require('./utils/command-line');
 
 const app = new Koa();
 const router = new Router();
@@ -33,22 +34,8 @@ router.get('/api/commands/:id', async (ctx) => {
   if (store.configData) {
     const action = getActionById(ctx.params.id, store.configData);
     const cwd = getCwdById(ctx.params.id, store.configData);
-    const actionArray = action.split(' ');
-
-    const envVars = actionArray
-      .filter((item) => item.indexOf('=') > -1 && item.indexOf('--') === -1)
-      .reduce((acc, item) => {
-        const [key, val] = item.split('=');
-
-        const updated = {
-          ...acc,
-          [key]: val,
-        };
-
-        return updated;
-      }, {});
-
-    const actionsWithoutEnvVars = actionArray.filter((item) => item.indexOf('=') === -1 || item.indexOf('--') > -1);
+    const envVars = getEnvVars(action);
+    const actionsWithoutEnvVars = getActionsWithoutEnvVars(action);
     const actionConfig = {
       cwd: `${__dirname}/${cwd}`,
       env: Object.entries(envVars).length > 0 ? envVars : undefined,
