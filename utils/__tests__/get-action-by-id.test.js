@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { assert } = require('chai');
 const addIdsToCommands = require('../add-ids-to-commands');
 const getActionById = require('../get-action-by-id');
 const configData = require('../../support/fixtures/config-data');
@@ -11,6 +11,6 @@ describe('getActionById', () => {
       sections: addIdsToCommands(app.sections),
     }));
     const actionId = withIds[0].sections[0].commands[1]._id;
-    assert.equal(getActionById(actionId, withIds), 'npm test');
+    assert.deepEqual(getActionById(actionId, withIds), 'npm test');
   });
 });

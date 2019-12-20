@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { assert } = require('chai');
 const addIdsToCommands = require('../add-ids-to-commands');
 const configData = require('../../support/fixtures/config-data');
 
