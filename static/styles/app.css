@@ -136,9 +136,15 @@ h2 {
 }
 
 .project {
-  max-width: 600px;
   padding: var(--section-padding);
   width: 100%;
+}
+
+@media(min-width: 1024px) {
+  .project {
+    max-width: 600px;
+    width: calc(50% - (var(--section-padding) * 2));
+  }
 }
 
 .project__section {
@@ -175,6 +181,18 @@ h2 {
   width: 100%;
 }
 
+@media(min-width: 1024px) {
+  .output-container {
+    border-radius: 4px;
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    height: calc(100% - (var(--section-padding) * 2));
+    right: var(--section-padding);
+    top: var(--section-padding);
+    transform: translate3d(0, 0, 0);
+    width: 50%;
+  }
+}
+
 .output-container.expanded {
   transform: translate3d(0, 0, 0);
 }
@@ -200,6 +218,12 @@ h2 {
   right: var(--section-padding);
   top: var(--section-padding);
   width: 40px;
+}
+
+@media(min-width: 1024px) {
+  .output-container__toggle {
+    display: none;
+  }
 }
 
 .output__text {
