@@ -58,4 +58,4 @@ router.get('/api/commands/:id', async (ctx) => {
 });
 
 
-module.exports = app.listen(3000);
+module.exports = app.listen(process.env.PORT || 3000);

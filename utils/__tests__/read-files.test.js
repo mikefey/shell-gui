@@ -6,7 +6,7 @@ describe('readFiles', () => {
     const expected = [
       {
         filename: 'config.sample.yml',
-        content: "title: \"My Project\"\nproject_dir: './'\nsections:\n  - section:\n    title: \"Section 1\"\n    commands:\n      - command:\n        title: \"List NPM Modules\"\n        action: \"npm ls\"\n      - command:\n        title: \"Test\"\n        action: \"npm test\"\n\n",
+        content: "title: \"My Project\"\nproject_dir: './'\nsections:\n  - section:\n    title: \"Section 1\"\n    commands:\n      - command:\n        id: \"list-modules\"\n        title: \"List NPM Modules\"\n        action: \"echo 'hello'\"\n      - command:\n        id: \"run-test\"\n        title: \"Test\"\n        action: \"npm test\"\n\n",
       },
     ];
 

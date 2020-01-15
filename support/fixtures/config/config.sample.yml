@@ -5,9 +5,11 @@ sections:
     title: "Section 1"
     commands:
       - command:
+        id: "list-modules"
         title: "List NPM Modules"
-        action: "npm ls"
+        action: "echo 'hello'"
       - command:
+        id: "run-test"
         title: "Test"
         action: "npm test"
 
