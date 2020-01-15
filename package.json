@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "NODE_ENV=test mocha -R spec --recursive './**/*.test.js'"
+    "test": "NODE_ENV=test CONFIG_FILE_DIR='./support/fixtures/config/' mocha -R spec --recursive './**/*.test.js'"
   },
   "repository": {
     "type": "git",

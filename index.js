@@ -25,7 +25,9 @@ app
   .use(router.routes());
 
 router.get('/', async (ctx) => {
-  const configData = await getConfigData('./configs/');
+  const configFileDir = process.env.CONFIG_FILE_DIR || './configs/';
+  const configData = await getConfigData(configFileDir);
+
   store.configData = configData;
   await ctx.render('index', { configData });
 });
