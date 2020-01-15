@@ -1,4 +1,4 @@
-const uuidv4 = require('./uuidv4');
+const { uuidv4 } = require('./uuidv4');
 
 const addIdsToCommands = (sections) => sections.map((section) => {
   const newCommands = section.commands.map((command) => ({
@@ -12,4 +12,4 @@ const addIdsToCommands = (sections) => sections.map((section) => {
   };
 });
 
-module.exports = addIdsToCommands;
+module.exports = { addIdsToCommands };

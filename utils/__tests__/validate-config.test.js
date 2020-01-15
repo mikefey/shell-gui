@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const validateConfig = require('../validate-config');
+const { validateConfig } = require('../validate-config');
 
 describe('validateConfig', () => {
   const defaultError = 'See configs/configs.sample.yml for an example of the correct format.';

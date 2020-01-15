@@ -14,4 +14,4 @@ const getCwdById = (id, data) => {
   return cwd;
 };
 
-module.exports = getCwdById;
+module.exports = { getCwdById };

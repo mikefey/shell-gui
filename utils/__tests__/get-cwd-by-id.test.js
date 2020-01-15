@@ -1,7 +1,7 @@
 const { assert } = require('chai');
-const addIdsToCommands = require('../add-ids-to-commands');
-const getCwdById = require('../get-cwd-by-id');
-const configData = require('../../support/fixtures/config-data');
+const { addIdsToCommands } = require('../add-ids-to-commands');
+const { getCwdById } = require('../get-cwd-by-id');
+const { configData } = require('../../support/fixtures/config-data');
 
 describe('getCwdById', () => {
   it('should return a directory path given an id', () => {

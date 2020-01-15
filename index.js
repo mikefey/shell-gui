@@ -3,9 +3,9 @@ const Router = require('@koa/router');
 const path = require('path');
 const Koa = require('koa');
 const { spawn } = require('child_process');
-const getConfigData = require('./utils/get-config-data');
-const getActionById = require('./utils/get-action-by-id');
-const getCwdById = require('./utils/get-cwd-by-id');
+const { getConfigData } = require('./utils/get-config-data');
+const { getActionById } = require('./utils/get-action-by-id');
+const { getCwdById } = require('./utils/get-cwd-by-id');
 const { getEnvVars, getActionsWithoutEnvVars } = require('./utils/command-line');
 
 const app = new Koa();
@@ -55,4 +55,5 @@ router.get('/api/commands/:id', async (ctx) => {
   }
 });
 
-app.listen(3000);
+
+module.exports = app.listen(3000);

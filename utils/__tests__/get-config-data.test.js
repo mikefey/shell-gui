@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const getConfigData = require('../get-config-data');
+const { getConfigData } = require('../get-config-data');
 
 describe('getConfigData', () => {
   it('should load and parse config files', async () => {

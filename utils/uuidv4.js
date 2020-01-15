@@ -6,4 +6,4 @@ const uuidv4 = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c)
   return v.toString(16);
 });
 
-module.exports = uuidv4;
+module.exports = { uuidv4 };

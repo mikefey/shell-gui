@@ -14,4 +14,4 @@ const getActionById = (id, data) => {
   return action;
 };
 
-module.exports = getActionById;
+module.exports = { getActionById };

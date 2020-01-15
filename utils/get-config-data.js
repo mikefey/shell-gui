@@ -1,7 +1,7 @@
 const yaml = require('js-yaml');
-const readFiles = require('./read-files');
-const validateConfig = require('./validate-config');
-const addIdsToCommands = require('./add-ids-to-commands');
+const { readFiles } = require('./read-files');
+const { validateConfig } = require('./validate-config');
+const { addIdsToCommands } = require('./add-ids-to-commands');
 
 const getConfigData = async (path) => {
   const configFileData = await readFiles(path);
@@ -28,4 +28,4 @@ const getConfigData = async (path) => {
   });
 };
 
-module.exports = getConfigData;
+module.exports = { getConfigData };

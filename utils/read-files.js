@@ -26,4 +26,4 @@ const readFiles = (dirname) => new Promise((resolve, reject) => {
   });
 });
 
-module.exports = readFiles;
+module.exports = { readFiles };

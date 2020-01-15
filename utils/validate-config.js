@@ -38,4 +38,4 @@ const validateConfig = (fileData) => {
   });
 };
 
-module.exports = validateConfig;
+module.exports = { validateConfig };

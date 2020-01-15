@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const readFiles = require('../read-files');
+const { readFiles } = require('../read-files');
 
 describe('readFiles', () => {
   it('should load files and return their contents', async () => {

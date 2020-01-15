@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const uuidv4 = require('../uuidv4');
+const { uuidv4 } = require('../uuidv4');
 
 describe('uuidv4', () => {
   it('should create a uuid', async () => {

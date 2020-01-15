@@ -33,4 +33,4 @@ const configData = [
   },
 ];
 
-module.exports = configData;
+module.exports = { configData };

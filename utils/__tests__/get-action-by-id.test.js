@@ -1,7 +1,7 @@
 const { assert } = require('chai');
-const addIdsToCommands = require('../add-ids-to-commands');
-const getActionById = require('../get-action-by-id');
-const configData = require('../../support/fixtures/config-data');
+const { addIdsToCommands } = require('../add-ids-to-commands');
+const { getActionById } = require('../get-action-by-id');
+const { configData } = require('../../support/fixtures/config-data');
 
 describe('getActionById', () => {
   it('should return an action given an id', () => {
