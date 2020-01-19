@@ -1,7 +1,7 @@
 # Shell GUI
 Run Shell Commands from a GUI instead of the command line.
 
-This is a work in progress.
+**This is a work in progress.**
 
 # TO DO
 - Stream commands to the output panel (currently only displays the ouput after the command has finished running)
